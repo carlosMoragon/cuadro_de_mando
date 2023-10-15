@@ -7,7 +7,7 @@ Proyecto de investigación: Cuadro de mando sobre una base de conocimientos.
 * Source: https://www.w3.org/TR/1999/REC-rdf-syntax-19990222/
 
 #### SPARQL:
-* Source:
+* Source: https://www.w3.org/TR/sparql11-query/
 
 #### Kisuma + ElasticSearch:
 * Source:
