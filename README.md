@@ -11,3 +11,6 @@ Proyecto de investigación: Cuadro de mando sobre una base de conocimientos.
 
 #### Kisuma + ElasticSearch:
 * Source:
+
+## Web para consultas:
+* Wikidata: https://query.wikidata.org/
