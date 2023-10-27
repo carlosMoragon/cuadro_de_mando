@@ -1,0 +1,9 @@
+DESDE: https://dbpedia.org/sparql/
+
+VA BIEN: 1
+
+PREFIX purl: <http://purl.org/ontology/bibo/>
+select distinct ?item where {?item a purl:Book} LIMIT 100
+
+EJEMPPLO DE SALIDA: https://dbpedia.org/page/American_Gothic_(novel)
+ATTR: dbo: -> http://dbpedia.org/resource/classes#
