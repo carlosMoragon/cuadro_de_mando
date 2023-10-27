@@ -5,5 +5,20 @@ VA BIEN: 1
 PREFIX purl: <http://purl.org/ontology/bibo/>
 select distinct ?item where {?item a purl:Book} LIMIT 100
 
-EJEMPPLO DE SALIDA: https://dbpedia.org/page/American_Gothic_(novel)
+EJEMPLO DE SALIDA: https://dbpedia.org/page/American_Gothic_(novel)
 ATTR: dbo: -> http://dbpedia.org/resource/classes#
+
+
+FILTRADO POR GENERO:
+
+PREFIX purl: <http://purl.org/ontology/bibo/>
+select distinct ?gender (count(*) as ?count) where {?item a purl:Book;
+dbo:literaryGenre ?gender
+} 
+GROUP BY ?gender
+
+EJEMPLO DE SALIDA: https://dbpedia.org/page/PC_game
+
+EXISTE UN GENERO https://dbpedia.org/page/Engineering
+ME PUEDO COGER LOS LIBROS JAJAJAJAJJA -> dbo:wikiPageExternalLink
+https://link.springer.com/content/pdf/10.1007/978-3-030-61601-4.pdf
