@@ -22,3 +22,90 @@ EJEMPLO DE SALIDA: https://dbpedia.org/page/PC_game
 EXISTE UN GENERO https://dbpedia.org/page/Engineering
 ME PUEDO COGER LOS LIBROS JAJAJAJAJJA -> dbo:wikiPageExternalLink
 https://link.springer.com/content/pdf/10.1007/978-3-030-61601-4.pdf
+
+
+
+28 oct 2023:
+ESTO VA PERO LO DE AYER NO:
+
+EJECUTADO EN WIKIDATA:
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX purl: <http://purl.org/ontology/bibo/>
+
+select distinct ?gender (count(*) as ?count) where{
+  SERVICE <http://dbpedia.org/sparql> {
+     ?item a purl:Book;
+        dbo:literaryGenre ?gender
+  } 
+
+}GROUP BY ?gender
+
+---------------
+
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX purl: <http://purl.org/ontology/bibo/>
+
+select distinct (SAMPLE(?itemlabel) as ?sampleLabel) ?genre (count(?item) as ?count) where{
+  SERVICE <http://dbpedia.org/sparql> {
+     ?item a purl:Book;
+             dbo:literaryGenre ?genre;
+             rdfs:label ?itemlabel
+  }
+}GROUP BY ?item ?genre
+ORDER BY ?genre
+LIMIT 100
+----------------------
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX purl: <http://purl.org/ontology/bibo/>
+
+select distinct ?itemlabel ?genre where{
+  SERVICE <http://dbpedia.org/sparql> {
+     ?item a purl:Book;
+             dbo:literaryGenre ?genre;
+             rdfs:label ?itemlabel
+  }
+}
+LIMIT 100
+
+
+--------------------
+select distinct ?itemlabel ?autorlabel ?generoAutorLabel where{
+  ?item wdt:P31 wd:Q571;
+        rdfs:label ?itemlabel;
+        wdt:P136 ?genre;
+        wdt:P50 ?autor.
+  FILTER (LANG(?itemlabel) = "en")
+  ?autor wdt:P21 ?generoAutor;
+         rdfs:label ?autorlabel.
+  FILTER (LANG(?autorlabel) = "en").
+  ?generoAutor rdfs:label ?generoAutorLabel.
+  FILTER (LANG(?generoAutorLabel) = "en").
+  
+}
+ORDER BY ?autorlabel
+LIMIT 100
+
+----------------------------
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX purl: <http://purl.org/ontology/bibo/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+select distinct ?itemLabel ?authorLabel ?genreAuthorLabel where{
+  ?item wdt:P31 wd:Q571;
+        wdt:P136 ?genre;
+        wdt:P50 ?autor.
+  ?author wdt:P21 ?genreAuthor.
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?item rdfs:label ?itemLabel.
+    ?author rdfs:label ?authorLabel.
+    ?genreAuthor rdfs:label ?genreAuthorLabel.
+  }
+}
+ORDER BY ?authorLabel
+LIMIT 100
