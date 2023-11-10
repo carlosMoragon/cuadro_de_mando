@@ -142,3 +142,42 @@ select distinct ?item ?autor ?itemlabel ?autorlabel ?generoAutorLabel ?birth ?de
 }
 ORDER BY ?autorlabel
 LIMIT 100
+
+-------------------------
+select distinct ?item ?autor ?itemlabel ?autorlabel ?generoAutorLabel ?birth ?death ?numero where{ # ?countryLabel where{
+  ?item wdt:P31 wd:Q571;
+        rdfs:label ?itemlabel;
+        wdt:P136 ?genre;
+        wdt:P50 ?autor.
+  
+  BIND(wd:Q759811 as ?tirada).
+  OPTIONAL{ ?tirada wdt:P1092 ?numero.}
+  
+  FILTER (LANG(?itemlabel) = "en")
+  
+  ?autor wdt:P21 ?generoAutor;
+         rdfs:label ?autorlabel;
+         wdt:P570 ?death;
+         wdt:P569 ?birth.
+  
+  
+
+  FILTER (LANG(?autorlabel) = "en").
+  
+
+
+  FILTER (YEAR(?death) > 1900).
+
+  
+  ?generoAutor rdfs:label ?generoAutorLabel.
+
+  FILTER (LANG(?generoAutorLabel) = "en").
+  
+
+  
+}
+ORDER BY ?autorlabel
+LIMIT 200
+
+
+
