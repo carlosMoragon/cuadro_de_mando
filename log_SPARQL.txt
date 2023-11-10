@@ -178,6 +178,21 @@ select distinct ?item ?autor ?itemlabel ?autorlabel ?generoAutorLabel ?birth ?de
 }
 ORDER BY ?autorlabel
 LIMIT 200
+-----------------------------------
 
+SELECT DISTINCT ?item ?itemLabel ?genderlabel ?autor ?autorlabel (COUNT(*) AS ?npremios) WHERE {
+  ?item wdt:P31 wd:Q571;
+        rdfs:label ?itemLabel;
+        wdt:P136 ?genre;
+        wdt:P50 ?autor.
+  OPTIONAL { ?autor wdt:P21 ?gender. }
+  OPTIONAL { ?autor wdt:P166 ?premio. }
+  ?autor rdfs:label ?autorlabel.
+  ?gender rdfs:label ?genderlabel
+  FILTER(LANG(?itemLabel) = "en")
+  FILTER(LANG(?autorlabel) = "en")
+}
+GROUP BY ?item ?itemLabel ?genderlabel ?autor ?autorlabel
+ORDER BY DESC(?npremios)
 
-
+LIMIT 100
