@@ -54,11 +54,9 @@ SELECT DISTINCT ?nameLabel ?empleados ?paisLabel ?lon ?lat ?profesionLabel ?naci
 ![cuadro_de_mando](https://github.com/carlosMoragon/cuadro_de_mando/blob/main/ImagenCuadro.png)
 
 ## Cuadro de mando ElasticSearch:
-![]()
+![ElasticSearch](https://github.com/carlosMoragon/cuadro_de_mando/blob/main/ImagenCuadroMando_ElasticSearch.png)
 
 ## Documentación:
-
-### Documentación:
 
 #### RDF (Resource Description Framework):
 * Source: https://www.w3.org/TR/1999/REC-rdf-syntax-19990222/
