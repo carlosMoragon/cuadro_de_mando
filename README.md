@@ -1,4 +1,4 @@
-# Cuadro de mando
+# Web semántica
 Proyecto de investigación: Cuadro de mando sobre una base de conocimientos.
 
 ### Por: Carlos Moragón Corella.
