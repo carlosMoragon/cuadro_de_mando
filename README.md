@@ -3,6 +3,7 @@ Proyecto de investigación: Cuadro de mando sobre una base de conocimientos.
 
 ### Por: Carlos Moragón Corella.
 
+
 ## Objetivo del Trabajo de Investigación:
 
 Investigar la web semántica y sus componentes, incluyendo su estructura, tecnologías subyacentes, y el lenguaje de consulta SPARQL, con el propósito de aplicar estos conocimientos en la recolección y análisis de datos para la creación de un cuadro de mando interactivo. Este trabajo se centrará en la obtención de datos sobre hospitales y sus empleados, utilizando consultas SPARQL sobre datos estructurados en formato RDF, para visualizar información relevante como la localización geográfica de los hospitales, el número de empleados, y las profesiones y nacionalidades del personal.
@@ -21,6 +22,14 @@ Investigar la web semántica y sus componentes, incluyendo su estructura, tecnol
 * Visualización de Datos: Crear un cuadro de mando interactivo que permita visualizar y analizar los datos recolectados, facilitando la interpretación de la información y apoyando la toma de decisiones informadas.
 
 Este enfoque permitirá combinar el entendimiento teórico de la web semántica y SPARQL con su aplicación práctica en la recolección y visualización de datos, proporcionando una comprensión integral del tema y demostrando su utilidad en contextos reales.
+
+## Tecnologías investigadas/usadas:
+* SparkQL
+* RDF
+* Wikidata
+* PowerBI
+* ElasticSearch
+
 
 ## Consulta:
 ```{txt}
