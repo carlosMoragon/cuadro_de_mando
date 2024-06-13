@@ -49,10 +49,12 @@ SELECT DISTINCT ?nameLabel ?empleados ?paisLabel ?lon ?lat ?profesionLabel ?naci
 }
 ```
 
-## Cuadro de mando:
+## Cuadro de mando PowerBI:
 
 ![cuadro_de_mando](https://github.com/carlosMoragon/cuadro_de_mando/blob/main/ImagenCuadro.png)
 
+## Cuadro de mando ElasticSearch:
+![]()
 
 ## Documentación:
 
