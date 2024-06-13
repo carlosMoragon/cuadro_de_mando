@@ -1,0 +1,23 @@
+#Datos de hospitales y sus empleados
+SELECT DISTINCT ?nameLabel ?empleados ?paisLabel ?lon ?lat ?profesionLabel ?nacionalidadLabel WHERE {
+  ?item wdt:P31/wdt:P279* wd:Q16917;
+        wdt:P1128 ?empleados;
+        wdt:P17 ?pais;
+        p:P625 ?geo.
+  
+
+  OPTIONAL{
+    ?item wdt:P2561 ?name.
+  }.
+  
+  ?geo psv:P625 ?node.
+  
+  ?node wikibase:geoLongitude ?lon;
+        wikibase:geoLatitude ?lat.
+  
+  ?empleado wdt:P108 ?item;
+            wdt:P106 ?profesion;
+            wdt:P27 ?nacionalidad.
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
